@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css"
+    /> -->
+    <link rel="stylesheet" href="./index.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="main">
+      <form action="" method="POST" class="form" id="form-1">
+        <h3 class="heading">Sign Up</h3>
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Name<label style="color: red;">*</label></label>
+          <input
+            id="fullname"
+            name="fullname"
+            type="text"
+            placeholder="VD: Ngo Minh Dong"
+            class="form-control"
+            autocomplete="off"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group flexbox">
+          Sex:
+          <input id="sex" name="gender" type="radio" class="form-control" />
+          <label for="gender" class="form-label genderM">Male</label>
+          <input id="sex" name="gender" type="radio" class="form-control" />
+          <label for="gender" class="form-label genderF">Female</label>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email<label style="color: red;">*</label></label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="VD: email@domain.com"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone-number" class="form-label">Phone Number<label style="color: red;">*</label></label>
+          <input
+            id="phone-number"
+            name="phone-number"
+            type="phone-number"
+            placeholder="+84"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="date" class="form-label">Date of Birth</label>
+          <input id="date" name="date" type="date" class="form-control" />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="adress" class="form-label">Adress</label>
+          <input
+            id="adress"
+            name="adress"
+            type="text"
+            placeholder="VD: Số nhà X, Tổ ..."
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="about" class="form-label">About</label>
+          <textarea
+            id="about"
+            name="about"
+            type="text"
+            class="form-control"
+          ></textarea>
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group flexbox">
+          <input name="checkbox" type="checkbox" class="form-control" />
+          <label id="save" for="checkbox">Save infomation</label>
+        </div>
+
+        <button type="submit" class="form-submit add-btn">Add</button>
+      </form>
+    </div>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr class="tr">
+          <th scope="col">STT</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Email</th>
+          <th scope="col">Tel</th>
+          <th scope="col">Date</th>
+          <th scope="col">Adress</th>
+          <th scope="col">About</th>
+        </trc>
+      </thead>
+        <tr id="user">
+          
+        </tr>
+      </body>
+    <script src="./validator.js"></script>
+    <script src="./infomation.js"></script>
+    <script>
+      // Mong muốn
+      Validator({
+        form: "#form-1",
+        rules: [
+          Validator.isRequired("#fullname"),
+          // Validator.isGender('#sex'),
+          Validator.isEmail("#email"),
+          Validator.isDate('#date'),
+          Validator.isAdd("#adress"),
+          Validator.isNumber("#phone-number")
+        ],
+      });
+    </script>
+  </body>
+</html>
