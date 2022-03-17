@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Form</title>
+
+    <link rel="stylesheet" href="form.css">
+    
+</head>
+<body>
+    <div class="div-form">
+        <form action="" class="form">
+            <div>
+                <div class="label">Name</div>
+                <input class="text-input input-name" type="text" placeholder="Enter your name" autocomplete="off">
+            </div>
+    
+            <div>
+                <div class="label">Phone Number</div>
+                <input class="text-input  input-phone" type="text" placeholder="Enter your phone number" autocomplete="off">
+            </div>
+    
+            <div>
+                <div class="label">Address</div>
+                <select name="address" id="" class="address">
+                    <option value="na" selected disabled>Please choose an option</option>
+                    <option value="Ba Dinh">Ba Dinh</option>
+                    <option value="Cau Giay">Cau Giay</option>
+                </select>
+            </div>
+    
+            <div>
+                <div class="label">Gender</div>
+
+                <div class="radio">
+                    <input type="radio" name="radio" id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="radio" id="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+    
+            <div>
+                <div class="label">Email</div>
+                <input class="text-input input-email" type="email" name="email" id="" placeholder="Enter your email" autocomplete="off">
+            </div>
+    
+            <div>
+                <div class="label">DoB</div>
+                <input type="date" name="" id="" required pattern="" class="dob">
+            </div>
+    
+            <div>
+                <div>
+                    <div class="label">
+                        Choose your preference
+                    </div>
+                    <div>
+                        <input class="input-check" type="checkbox" name="checkbox" id="">
+                        <label for="checkbox">Pineapple on pizza</label>
+                    </div>
+                    <div>
+                        <input class="input-check" type="checkbox" name="no_pine">
+                        <label for="no_pine">No Pineapple on Pizza</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Description</div>
+                <textarea class="text-input input-desc" name="desc" id="desc" cols="30" rows="10" placeholder="Enter your desciption"></textarea>
+            </div>
+    
+            <div>
+                <button type="submit" class="submit">Add</button>
+            </div>
+        </form>
+    </div>    
+
+    <script src="form.js"></script>
+</body>
+</html>
