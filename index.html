@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body onload="render()">
+    <div id="container">
+        <div class="information">
+            <div>
+                <h1>information</h1>
+            </div>
+            <div>
+                <input id="name" type="text" placeholder="Fullname">
+                <span id="name-error"></span>
+            </div>
+            <div>
+                <input id="date" type="date" placeholder="Date">
+                <span id="date-error"></span>
+            </div>
+            <div>
+                <input id="number" type="number" placeholder="Number">
+                <span id="number-error"></span>
+            </div>
+            <div>
+                <input id="gmail" type="text" placeholder="Gmail">
+                <span id="gmail-error"></span>
+            </div>
+            <div>
+                <input id="address" type="text" placeholder="Address">
+                <span id="address-error"></span>
+            </div>
+            <!-- checked box -->
+
+            <div class="checked">
+                <input name="subject" id="math" type="checkbox" value="math">Math</input>
+                <input name="subject" id="physical" type="checkbox" value="physical">Physical</input>
+            </div>
+            <span id="subject-error"></span>
+
+
+            <!-- checked box -->
+
+            <div>
+                <input id="describe" type="text" placeholder="Describe about you!">
+                <span id="describe-error"></span>
+            </div>
+            <div class="gender">
+                <h5>Gender</h5>
+                <input id="male" type="radio" name="gender" value="male">Male</input>
+                <input id="female" type="radio" name="gender" value="female">Female</input>
+                <span id="gender-error"></span>
+            </div>
+            <button id="submitt" onclick="save()">Submit</button>
+
+        </div>
+        <div class="listStudents">
+            <h2>Detail - Informations</h2>
+            <table id="table">
+
+            </table>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
