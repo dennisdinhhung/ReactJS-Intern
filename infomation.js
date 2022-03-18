@@ -36,7 +36,6 @@ const getUserById = (id) => {
 
 const renderUI = (listUsers) => {
   let usersHTML = listUsers.reduce((output, user) => {
-    console.log(output);
     return (
       output +
       `<tr>
@@ -62,6 +61,20 @@ const renderUI = (listUsers) => {
   // Save to localStorage
   localStorage.setItem("listUsers", JSON.stringify(listUsers));
 };
+
+// Data form Fake JSON sever
+var userApi = "http://localhost:3000/user";
+function start() {
+  getUser(function (user) {
+    renderUI(user);
+  });
+}
+start();
+function getUser(callback) {
+  fetch(userApi)
+    .then((respone) => respone.json())
+    .then(callback);
+}
 
 renderUI(listUsers);
 

@@ -41,7 +41,7 @@ function Validator(options) {
         }
       });
       if (isFormValid) {
-        submitForm();
+        handleAddUser();
       } else {
         console.log("Có lỗi");
       }
@@ -75,8 +75,6 @@ function Validator(options) {
   }
 }
 
-// khi có lỗi => trả message lỗi
-// khi không có lỗi => không trả ra cái gì (undefined)
 Validator.isRequired = (selector, message) => {
   return {
     selector: selector,

@@ -1,34 +1,54 @@
 {
   "user": [
     {
-      "id": 1,
-      "userName": "Ngo Minh Dong",
-      "gender": "Male",
-      "email": "Minhdong@gmail.com",
-      "phone": "0339065951",
-      "date": "20/04/1999",
-      "address": "Thai Binh",
-      "about": "Kien Xuong"
-    },
-    {
-      "id": 2,
-      "userName": "Ngo Minh Duc",
-      "gender": "Male",
-      "email": "Minhduc@gmail.com",
-      "phone": "0339065951",
-      "date": "02/08/1999",
-      "address": "Thai Binh",
-      "about": "Kien Xuong"
-    },
-    {
-      "id": "3",
-      "userName": "Ngo Thi Ngoc Bich",
+      "userName": "Ngo Thi Ngoc Phan Anh",
       "gender": "Female",
-      "email": "n2bich@vmodev.com",
+      "date": "",
+      "phone": "undefined",
+      "email": "undefined",
+      "address": "undefined",
+      "about": "undefined 123",
+      "id": 2
+    },
+    {
+      "userName": "Tran Dinh Doan",
+      "gender": "Male",
+      "date": "1999-09-16",
       "phone": "0339065951",
-      "date": "2/8/1998",
-      "address": "Thai Binh",
-      "about": "Bich beo"
+      "email": "Doantran129@vmodev.com",
+      "address": "Bui Xuong Trach",
+      "about": "Nice",
+      "id": 3
+    },
+    {
+      "userName": "Tran Minh Hieu",
+      "gender": "Female",
+      "date": "1999-09-06",
+      "phone": "0339065951",
+      "email": "hiutheboss1999@vmodev.com",
+      "address": "Quan Nhan",
+      "about": "Nice girl",
+      "id": 4
+    },
+    {
+      "userName": "Le Thanh Van",
+      "gender": "Male",
+      "date": "2022-03-09",
+      "phone": "0339065951",
+      "email": "me@vmo.com",
+      "address": "gg",
+      "about": "",
+      "id": 5
+    },
+    {
+      "userName": "Nguyen Quoc Khanh",
+      "gender": "Male",
+      "date": "1999-09-02",
+      "phone": "0339065951",
+      "email": "Gessmon29@vmodev.com",
+      "address": "Duong Lang",
+      "about": "Nice",
+      "id": 6
     }
   ]
 }
