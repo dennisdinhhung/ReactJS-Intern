@@ -31,17 +31,16 @@
             type="text"
             placeholder="VD: Ngo Minh Dong"
             class="form-control"
-            autocomplete="off"
           />
           <span class="form-message"></span>
         </div>
 
         <div class="form-group flexbox">
           Sex:
-          <input id="sex" name="gender" type="radio" class="form-control" />
           <label for="gender" class="form-label genderM">Male</label>
-          <input id="sex" name="gender" type="radio" class="form-control" />
+          <input id="male" name="gender" type="radio" class="form-control" />
           <label for="gender" class="form-label genderF">Female</label>
+          <input id="female" name="gender" type="radio" class="form-control" />
         </div>
 
         <div class="form-group">
@@ -75,10 +74,10 @@
         </div>
 
         <div class="form-group">
-          <label for="adress" class="form-label">Adress</label>
+          <label for="address" class="form-label">Adress</label>
           <input
-            id="adress"
-            name="adress"
+            id="address"
+            name="address"
             type="text"
             placeholder="VD: Số nhà X, Tổ ..."
             class="form-control"
@@ -91,8 +90,8 @@
           <textarea
             id="about"
             name="about"
-            type="text"
-            class="form-control"
+            type="texta"
+            rows="8"
           ></textarea>
           <span class="form-message"></span>
         </div>
@@ -102,7 +101,10 @@
           <label id="save" for="checkbox">Save infomation</label>
         </div>
 
-        <button type="submit" class="form-submit add-btn">Add</button>
+        <div class="group-btn">
+          <button type="submit" class="form-submit btn btn-active">Add</button>
+          <button class="btn btn-inactive" id="btn-update">Update</button>
+        </div>
       </form>
     </div>
     
@@ -119,23 +121,25 @@
           <th scope="col">About</th>
         </trc>
       </thead>
-        <tr id="user">
+        <tbody id="user">
           
-        </tr>
+        </tbody>
       </body>
     <script src="./validator.js"></script>
     <script src="./infomation.js"></script>
+    <script src="./json.js"></script>
     <script>
       // Mong muốn
       Validator({
         form: "#form-1",
+        errorSelector: ".form-message",
         rules: [
-          Validator.isRequired("#fullname"),
-          // Validator.isGender('#sex'),
-          Validator.isEmail("#email"),
-          Validator.isDate('#date'),
-          Validator.isAdd("#adress"),
-          Validator.isNumber("#phone-number")
+          Validator.isRequired("#fullname", "Vui lòng nhập tên đầy đủ!"),
+          // Validator.isGender('#sex',"Vui lòng chọn giới tính!"),
+          Validator.isEmail("#email", "Vui lòng nhập Email!"),
+          Validator.isDate('#date', "Vui lòng chọn ngày sinh!"),
+          Validator.isAdd("#address", "Vui lòng nhập địa chỉ!"),
+          Validator.isNumber("#phone-number", "Vui lòng nhập số điện thoại!")
         ],
       });
     </script>
