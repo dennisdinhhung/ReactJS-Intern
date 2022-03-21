@@ -1,0 +1,128 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#header {
+  display: flex;
+}
+#support,
+#right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px;
+}
+.header-item {
+  margin: 0 8px;
+  border-right: 1px solid rgb(61, 60, 60);
+}
+h2 {
+  color: orange;
+  font-size: 50px;
+}
+
+.ti-shopping-cart {
+  background-color: orange;
+}
+.mobile-menu-btn {
+  display: none;
+}
+
+#nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(48, 48, 48);
+  color: #fff;
+  height: 50px;
+  padding-left: 0;
+  margin: auto 10px;
+  list-style: none;
+  cursor: pointer;
+}
+#nav-list a {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-item {
+  list-style: none;
+}
+
+.slide {
+  position: relative;
+}
+.slide > img {
+  padding: 0 10px 0 10px;
+  height: 500px;
+  width: 100%;
+}
+.offer {
+  position: absolute;
+  margin-top: -250px;
+  padding-left: 100px;
+  color: #fff;
+}
+#header-offer {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.offer > button {
+  color: #fff;
+  background-color: orange;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 20px;
+  border: snow;
+  cursor: pointer;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+#content-header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+#content {
+  max-width: 70%;
+}
+.sale {
+  position: relative;
+  margin-right: -15px;
+  margin-top: -10px;
+  background-color: green;
+  color: #fff;
+}
+#product {
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.item-product {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  padding: 12px 16px;
+  margin-top: 16px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+.item-product > button {
+  height: 30px;
+  background-color: #fff;
+  color: #afadad;
+  border: 1px solid #d6d6d6;
+}
+.checkbox {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  width: 100%;
+}

@@ -1,0 +1,33 @@
+/* repsponsive */
+@media only screen and (max-width: 880px) {
+  #support,
+  #right {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+  h2 {
+    margin-right: 80%;
+    font-size: 40px;
+  }
+  .offer {
+    position: absolute;
+    padding-left: 10%;
+  }
+  #header-offer {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .offer > button {
+    color: #fff;
+    background-color: orange;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 15px;
+    border: snow;
+    cursor: pointer;
+  }
+}
