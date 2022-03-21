@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: "northshore-icons", sans-serif;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px 10px 25px;
+}
+
+.header__contact {
+    display: flex;
+    height: 45px;
+}
+
+.header__contact-left {
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+.header__separate {
+    width: 1px;
+    background-color: #c6cbcf;
+    height: 45px;
+    margin: 0px 15px;
+}
+
+.header__contact-right {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.header__function {
+    display: flex;
+    text-align: center;
+}
+
+.header__text {
+    color: #51515b;
+    font-size: 14px;
+}
+
+.header__wrapper {
+    margin: auto;
+}
+
+.header__cart {
+    display: flex;
+    background-color: #ff6600;
+    align-items: center;
+    padding: 0px 10px;
+    position: relative;
+    margin: 5px 0px;
+}
+
+.header__cart::before {
+    content: "1";
+    position: absolute;
+    top: -4px;
+    left: 15px;
+    font-size: 11px;
+    color: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ff6600;
+}
+
+.header__navbar--lower {
+    background-color: #4d5057;
+    line-height: 46px;
+}
+
+.header__navbar--lower > ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.header__navbar--lower > ul > li {
+    margin-right: 45px;
+}
+
+.header__navbar--lower > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner > img {
+    width: 100%;
+}
+
+.banner__back {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    background-color: rgb(126, 138, 152, 0.6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner__next {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    background-color: rgb(126, 138, 152, 0.6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner__back > i,
+.banner__next > i {
+    color: #fff;
+}
+
+.banner__detail {
+    position: absolute;
+    width: 335px;
+    align-items: center;
+    top: 25%;
+    left: 20%;
+}
+
+.banner__header {
+    font-size: 25px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.banner__offer {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.banner__link {
+    width: 135px;
+    height: 50px;
+    background-color: #ff6600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner__link > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content {
+    text-align: center;
+    margin: 50px 0px;
+}
+
+.content__header {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #373945;
+}
+
+.content__main {
+    padding: 0px 100px;
+    color: #64717a;
+    margin-bottom: 20px;
+}
+
+.content__footer {
+    color: #98707b;
+    font-weight: 600;
+    padding: 0px 150px;
+}
+
+.list-product {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 30%;
+    border: 1px solid #333;
+    padding: 0px 20px;
+    margin: 10px 25px 10px 25px;
+}
+
+.item__img {
+    border-bottom: 1px solid #333;
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.item__view {
+    border: 1px solid #333;
+    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+    width: 150px;
+    margin: auto;
+    padding: 5px 0px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.item__view > a {
+    text-decoration: none;
+}
+
+.item__rating > i {
+    color: yellow;
+}
+
+.item__name {
+    margin-top: 20px;
+    color: #22568f;
+    font-size: 20px;
+}
+
+.item__button {
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    margin: 20px -20px 0px -20px;
+    padding: 10px 0px;
+}
+
+.item__button > input {
+    width: 24px;
+    height: 24px;
+    margin: 0px 20px;
+}
