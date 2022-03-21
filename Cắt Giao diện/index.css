@@ -1,0 +1,223 @@
+* {
+    padding   : 0;
+    margin    : 0;
+    box-sizing: border-box;
+}
+
+#mainHeader {
+    display        : flex;
+    width          : 100%;
+    height         : 40px;
+    justify-content: space-between;
+    align-items    : center;
+    padding        : 0 10px 0 10px;
+}
+
+.mainHeader-number {
+    display: flex;
+}
+
+.mainHeader-account {
+    display: flex;
+}
+
+#description {
+    margin: 0 15px 0 15px;
+}
+
+h1 {
+    color      : orange;
+    margin-left: 50px;
+}
+
+h2 {
+    margin: 10px 0 10px 0;
+}
+
+h5 {
+    margin   : 10px 0 10px 0;
+    font-size: 15px;
+}
+
+#mainHeader hr {
+    margin          : 0 5px 0 5px;
+    background-color: black;
+    height          : auto;
+    width           : 0px;
+}
+
+#subHeader {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    height          : 40px;
+    background-color: rgb(155, 153, 151);
+    font-size       : 30px;
+    height          : 50px;
+    color           : white;
+}
+
+.img-backgorundHeader {
+    width     : 100%;
+    height    : 600px;
+    object-fit: fill;
+}
+
+#backgorundHeader {
+    position: relative;
+}
+
+#backgorundHeader button {
+    width           : 110px;
+    height          : 40px;
+    background-color: orange;
+    color           : white;
+    font-size       : 20px;
+    border          : none;
+    margin-top      : 10px;
+    cursor          : pointer;
+}
+
+.contentBackground {
+    position : absolute;
+    z-index  : 2;
+    top      : 40%;
+    right    : 5%;
+    width    : 30%;
+    color    : rgb(255, 46, 46);
+    font-size: 25px;
+}
+
+#description {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#itemIphone {
+    width     : 100%;
+    display   : flex;
+    flex-wrap : wrap;
+    margin-top: 40px;
+}
+
+.subItem {
+    width     : 30%;
+    height    : auto;
+    text-align: center;
+    position  : relative;
+    border    : 1px solid black;
+    margin    : 0 20px 20px 20px;
+    object-fit: cover;
+}
+
+.subItem hr {
+    width: 70%;
+}
+
+.subItem>span {
+    position        : absolute;
+    top             : 0;
+    right           : 0;
+    z-index         : 9999;
+    width           : 50px;
+    height          : 20px;
+    line-height     : 20px;
+    background-color: rgb(65, 247, 65);
+}
+
+.subItem-img>img {
+    padding: 20px 0 10px 0;
+    width  : 100%;
+}
+
+.subItem-img {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+.subItem-img>button {
+    margin: 20px 0 10px 0;
+    width : 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.subItem-check,
+.subItem-content {
+    text-align: left;
+}
+
+.subItem-check {
+    background-color: rgb(182, 180, 179);
+    width           : 100%;
+    height          : 40px;
+    display         : flex;
+    justify-content : flex-start;
+    align-items     : center;
+    line-height     : 40px;
+}
+
+.subItem-check input {
+    width : 70px;
+    height: 20px;
+}
+
+.subItem-content {
+    margin: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 800px) {
+    * {
+        font-size: 13px;
+    }
+
+    #itemIphone {
+        justify-content: center;
+        align-items    : center;
+    }
+
+    .img-backgorundHeader {
+        width     : 80%;
+        height    : 80%;
+        text-align: center;
+    }
+
+    .contentBackground {
+        position : absolute;
+        z-index  : 2;
+        top      : 30%;
+        right    : 2%;
+        width    : 30%;
+        color    : rgb(255, 47, 47);
+        font-size: 15px;
+    }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+
+    #itemIphone {
+        justify-content: center;
+        align-items    : center;
+    }
+
+    .img-backgorundHeader {
+        width     : 80%;
+        height    : 80%;
+        text-align: center;
+    }
+
+    .contentBackground {
+        position : absolute;
+        z-index  : 2;
+        top      : 30%;
+        right    : 2%;
+        width    : 30%;
+        color    : rgb(245, 37, 37);
+        font-size: 15px;
+    }
+}
