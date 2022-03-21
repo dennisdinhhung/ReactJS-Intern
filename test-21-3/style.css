@@ -1,0 +1,119 @@
+*{
+    font-family: 'northshore-icons','san-serif';
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    align-items: center;
+    
+}
+
+.header__icon__img{
+    background-color: white;
+    width: 100%;
+    height: 3.5rem;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    text-align: center;
+   
+}
+.header__left__support__product2{
+    color: #020B46;
+    margin-bottom: 17px;
+}
+.header__left__support__product1{
+    border-right: solid 1px #4D5057;
+
+}
+.header__right__support{
+    color:#4D5057 ;
+}
+.header__product__account{
+    border-right: solid  #4D5057;
+    border-left: solid  #4D5057;;
+}
+.header__right {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.header__product{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50%;
+
+}
+.header__product i{
+    background-color: #fff;
+    
+}
+
+.navbar{
+    background-color: #4D5057;
+    height: 2.8rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar div{
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    color: #F2F2F2;
+  
+}
+
+
+.slide__img{
+    background-image: url('./image/main.png');
+    display: block;
+    width: 100%;
+    height: 30rem;
+    position: relative;
+}
+
+
+
+.slide__img__right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.slide__img__left{
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+.fa-circle{
+    font-size: 3rem;
+}
+
+.slide__content{
+    width: 25rem;
+    height: 25rem;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    margin-left: 7rem;
+}
+.slide__content h1{
+    color: black;
+}
+.slide__content a{
+ padding: 1rem 3rem 1rem 3rem;
+ background-color: #FF6600;
+ color: white;
+}
