@@ -100,6 +100,15 @@ textarea{
     padding: 5px;
 }
 
+.error{
+    border-color: red;
+}
+
+.validate-msg{
+    font-size: small;
+    color: red;
+}
+
 body{
     background-color: grey;
     font-family: 'Montserrat', 'Roboto', 'Arial';

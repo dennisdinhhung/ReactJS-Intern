@@ -11,47 +11,53 @@
 </head>
 <body>
     <div class="div-form">
-        <form action="" class="form">
+        <form action="" class="form" id="form">
             <input type="hidden" name="id" value="" id="id" class="id"/>
 
             <div>
                 <div class="label">Name<span>*</span></div>
-                <input class="text-input input-name" type="text" placeholder="Enter your name" autocomplete="off">
+                <input class="text-input input-name" id="input-name" type="text" placeholder="Enter your name" autocomplete="off">
+                <div class="validate-msg"></div>
             </div>
     
             <div>
                 <div class="label">Phone Number<span>*</span></div>
-                <input class="text-input  input-phone" type="text" placeholder="Enter your phone number" autocomplete="off">
+                <input class="text-input  input-phone" id="input-phone" type="text" placeholder="Enter your phone number" autocomplete="off">
+                <div class="validate-msg"></div>
             </div>
     
             <div>
                 <div class="label">Address<span>*</span></div>
-                <select name="address" id="" class="address">
+                <select name="address" id="address" class="address">
                     <option value="na" selected disabled>Please choose an option</option>
                     <option value="Ba Dinh">Ba Dinh</option>
                     <option value="Cau Giay">Cau Giay</option>
                 </select>
+                <div class="validate-msg"></div>
             </div>
     
             <div>
                 <div class="label">Gender<span>*</span></div>
 
                 <div class="radio">
-                    <input type="radio" name="radio" id="male" value="male">
+                    <input type="radio" name="radio" id="male" value="male" checked>
                     <label for="male">Male</label>
                     <input type="radio" name="radio" id="female" value="female">
                     <label for="female">Female</label>
                 </div>
+                <div class="validate-msg"></div>
             </div>
     
             <div>
                 <div class="label">Email<span>*</span></div>
-                <input class="text-input input-email" type="email" name="email" id="" placeholder="Enter your email" autocomplete="off">
+                <input class="text-input input-email" id="input-email" type="email" name="email" id="" placeholder="Enter your email" autocomplete="off">
+                <div class="validate-msg"></div>
             </div>
     
             <div>
                 <div class="label">DoB<span>*</span></div>
-                <input type="date" name="" id="" required pattern="" class="dob">
+                <input type="date" name="" id="dob" required pattern="" class="dob">
+                <div class="validate-msg"></div>
             </div>
     
             <div>
@@ -105,5 +111,22 @@
     </div>
 
     <script src="form.js"></script>
+    <script src="validate.js"></script>
+    <script>
+        validator({
+            form: '#form',
+            errorSelector: '.validate-msg',
+            rules: [
+                validator.isRequired('#input-name', 'Please fill in your name'),
+                validator.isRequired('#dob', 'Please fill choose your birth date'),
+                validator.isDate('#dob'),
+                validator.isRequired('#input-phone', 'Please fill in your phone number'),
+                validator.isPhoneNumber('#input-phone'),
+                validator.isRequired('#input-email', 'Please fill in your email'),
+                validator.isEmail('#input-email'),
+                validator.isRequired('#address', 'Please fill iny our address'),
+            ]
+        })
+    </script>
 </body>
 </html>

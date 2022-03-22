@@ -32,9 +32,7 @@ if (localStorage.getItem('listUser') != null) {
     listUser = JSON.parse(localStorage.getItem('listUser'));
 }
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-
+const submitForm = (e) => {
     let user_name = document.querySelector('.input-name').value;
     let phone_no = document.querySelector('.input-phone').value;
     let address = document.querySelector('.address').value;
@@ -64,7 +62,7 @@ form.addEventListener('submit', function(e){
     renderRow(listUser);
     console.log(user.id);
     location.reload();
-})
+}
 
 const renderRow = (listUser) => {
     let rowHTML = listUser.reduce((output, user) => {
@@ -148,8 +146,6 @@ for (let i = 0; i < listUser.length; i++){
     }
 }
 
-
-//function for update onlick
 updateBtn.onclick = (e) => {
     e.preventDefault();
 
@@ -201,4 +197,28 @@ updateBtn.onclick = (e) => {
     updateBtn.classList.remove('btn-active');
     location.reload();
 }
-// TODO: delete button and func
+
+// const setError = (element, msg) => {
+//     const parentElement = element.parentElement;
+//     const errorDisplay = parentElement.querySelector('.validate-msg');
+
+//     errorDisplay.innerHTML = msg;
+//     parentElement.classList.add('error');
+// }
+
+
+// validate function
+// const validateInput = () => {
+//     const user_nameVali = user_name;
+//     const phone_noVali = phone_no;
+//     const addressVali = address;
+//     const radioVali = radio;
+//     const emailVail = email;
+//     const dobVali = dob;
+//     const checkedValueVali = checkedValue;
+//     const descVali = desc;
+    
+//     if(user_nameVali == ''){
+//         setError(user_name)
+//     }
+// }
