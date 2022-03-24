@@ -1,11 +1,16 @@
 function validator(options){
     let selectorRules = {};
 
+    console.log('selector-1')
+    console.log(selectorRules)
+
     function validate(inputElement, rule){
         const errorElement = inputElement.parentElement.querySelector(options.errorSelector);
         let errorMessage = '';
         
         const testOfSelector = selectorRules[rule.selector];
+        
+        console.log(selectorRules, 1);
 
         for (let i = 0; i < testOfSelector.length; i++){
             errorMessage = testOfSelector[i](inputElement.value);
@@ -45,6 +50,8 @@ function validator(options){
                 submitForm();
             }
         }
+
+        console.log(selectorRules);
 
         options.rules.forEach((rule) => {
             if (Array.isArray(selectorRules[rule.selector])) {
