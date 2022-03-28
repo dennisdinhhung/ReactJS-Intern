@@ -1,25 +1,23 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-react\ form/form-react/node_modules
-/.pnp
-.pnp.js
-
-
+/form/node_modules
+/form/.pnp
+/form.pnp.js
 
 # testing
-/coverage
+/form/coverage
 
 # production
-/build
+/form/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/form/.DS_Store
+/form/.env.local
+/form/.env.development.local
+/form/.env.test.local
+/form/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/form/npm-debug.log*
+/form/yarn-debug.log*
+/form/yarn-error.log*
