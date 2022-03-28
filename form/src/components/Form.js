@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Form() {
+function Form(submition) {
     const [inputInfo, setInputInfo] = useState({
         id: '',
         user_name: '',
@@ -10,14 +10,40 @@ function Form() {
         email: '',
         dob: '',
         checkbox: [],
-        desc:'',
+        desc:''
     });
+
+    const handleCheckbox = (pref) => {
+        setInputInfo(prevInfo => {
+            // check if the pref is in the pref-list
+            const isChecked = prevInfo.checkbox.includes(pref);
+            // if True: filter out the pref in the list, create a new list.
+            // if False: add the item into the list
+            const checkboxListUpdate = isChecked ? prevInfo.checkbox.filter(item => item !== pref) : [...prevInfo.checkbox, pref];
+            return{
+                ...prevInfo,
+                checkbox: checkboxListUpdate
+            }
+        })
+    }
 
     const [submit, setSubmit] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSubmit(true);
+        // submition.onSubmit()
+
+        // setting the InputInfo to default
+        setInputInfo({
+            id: '',
+            user_name: '',
+            phone_no: '',
+            address: '',
+            radio: 'male',
+            email: '',
+            dob: '',
+            checkbox: [],
+            desc:''})
     };
 
     return (
@@ -121,7 +147,7 @@ function Form() {
                         onChange={(e) => setInputInfo({...inputInfo, dob: e.target.value})}/>
                 </div>
 
-                {// TODO: accept checkbox using a function
+                {//accept checkbox using a function
                     // if click, add the value of the button to the checkbox []
                     // change the state of the button to checked if the value is in the inputInfo.checkbox []
                     // if unchecked, remove the value out of the list
@@ -136,7 +162,9 @@ function Form() {
                             type="checkbox" 
                             name="checkbox" 
                             id="" 
-                            value="pine"/>
+                            value="pine"
+                            onChange={() => handleCheckbox('pine')}
+                            checked={inputInfo.checkbox.includes('pine')}/>
                         <label for="checkbox">Pineapple on pizza</label>
                     </div>
 
@@ -146,10 +174,14 @@ function Form() {
                             type="checkbox" 
                             name="checkbox" 
                             id="" 
-                            value="pepp"/>
+                            value="pepp"
+                            onChange={() => handleCheckbox('pepp')}
+                            checked={inputInfo.checkbox.includes('pepp')}/>
                         <label for="checkbox">Pepperroni on pizza</label>
                     </div>
                 </div>
+
+                {console.log(inputInfo.checkbox)}
 
                 <div className='div-input'>
                     <textarea
