@@ -1,28 +1,64 @@
+import { React, useState } from 'react';
+import Form from './Form';
 
+function Table({listInfo, parentOnEditClick}) {
+    // const [table, setTable] = useState();
 
-function Table() {
+    const handleEditClick = (row) => {
+        if (parentOnEditClick){
+            parentOnEditClick(row);
+        }
+    }
+
+    const handleDelClick = (row) => {
+        return
+    }
     
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Email</th>
-                    <th>DoB</th>
-                    <th>Preference</th>
-                    <th>Description</th>
-                    <th>Option</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                
-            </tbody>
-        </table>
+        <div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>DoB</th>
+                            <th>Preference</th>
+                            <th>Description</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                    {listInfo.map((row, index) => (
+                            <tr key={index}>
+                                <td>{++index}</td>
+                                <td>{row.user_name}</td>
+                                <td>{row.phone_no}</td>
+                                <td>{row.address}</td>
+                                <td>{row.radio}</td>
+                                <td>{row.email}</td>
+                                <td>{row.dob}</td>
+                                <td>{row.pref}</td>
+                                <td>{row.desc}</td>
+                                <td>
+                                    <button onClick={() => handleEditClick(row)}>
+                                        Edit
+                                    </button>
+                                    <button onClick={() => handleDelClick(row)}>
+                                        Del
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     )
 }
 

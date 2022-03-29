@@ -92,14 +92,6 @@ table td, th{
   padding: 8px;
 }
 
-table tr:nth-child(even){
-  background-color: #f2f2f2;
-}
-
-table tr:hover{
-  background-color: #ddd;
-}
-
 table th{
   padding: 12px 0px;
   background-color: var(--second-color);

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function Form(submition) {
+function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
+
     const [inputInfo, setInputInfo] = useState({
         id: '',
         user_name: '',
@@ -12,6 +13,12 @@ function Form(submition) {
         checkbox: [],
         desc:''
     });
+
+    //use useEffect as a listener for rowToEdit
+    //if rowToEdit change then use useState to change the inputInfo to the info of rowToEdit
+    useEffect(() => {
+        setInputInfo(rowToEdit)
+    },[rowToEdit])
 
     const handleCheckbox = (pref) => {
         setInputInfo(prevInfo => {
@@ -27,11 +34,14 @@ function Form(submition) {
         })
     }
 
-    const [submit, setSubmit] = useState(false)
-
+    // const [submit, setSubmit] = useState(false);
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        // submition.onSubmit()
+
+        //call the handleParentSubmit
+        console.log(inputInfo, 7);
+        parentOnSubmit(inputInfo);
 
         // setting the InputInfo to default
         setInputInfo({
@@ -46,10 +56,29 @@ function Form(submition) {
             desc:''})
     };
 
+    const handleUpdate = (e) => {
+        e.preventDefault();
+
+        parentOnUpdate(inputInfo);
+
+        setInputInfo({
+            id: '',
+            user_name: '',
+            phone_no: '',
+            address: '',
+            radio: 'male',
+            email: '',
+            dob: '',
+            checkbox: [],
+            desc:''
+        })
+    }
+
     return (
         <div className="div-form"> 
-            <form classname="form" id="form" onSubmit={handleSubmit}>
-                {submit ? <div className='success-submition'>Submition Successful!</div> : null}
+            <form className="form" id="form" onSubmit={handleSubmit}>
+                {// submit ? <div className='success-submition'>Submition Successful!</div> : null
+                }
                 <div className='div-input'>
                     <div className='label'>Name<span>*</span></div>
                     <input 
@@ -87,7 +116,7 @@ function Form(submition) {
                         value={inputInfo.address}
                         onChange={(e) => setInputInfo({...inputInfo, address: e.target.value})}
                         >
-                        <option value='' selected disabled>Please choose an option</option>
+                        <option value='' disabled>Please choose an option</option>
                         <option 
                             value='ba dinh'>
                                 Ba Dinh</option>
@@ -110,7 +139,7 @@ function Form(submition) {
                             onChange={() => setInputInfo({...inputInfo, radio: 'male'})}
                             checked={inputInfo.radio === 'male'}/>
                         
-                        <label for='male'>Male</label>
+                        <label htmlFor='male'>Male</label>
                         
                         <input 
                             type='radio' 
@@ -120,7 +149,7 @@ function Form(submition) {
                             onChange={() => setInputInfo({...inputInfo, radio: 'female'})}
                             checked={inputInfo.radio === 'female'}/>
                         
-                        <label for='female'>Female</label>
+                        <label htmlFor='female'>Female</label>
                     </div>
                 </div>
 
@@ -165,7 +194,7 @@ function Form(submition) {
                             value="pine"
                             onChange={() => handleCheckbox('pine')}
                             checked={inputInfo.checkbox.includes('pine')}/>
-                        <label for="checkbox">Pineapple on pizza</label>
+                        <label htmlFor="checkbox">Pineapple on pizza</label>
                     </div>
 
                     <div className='div-checkbox'>
@@ -177,11 +206,9 @@ function Form(submition) {
                             value="pepp"
                             onChange={() => handleCheckbox('pepp')}
                             checked={inputInfo.checkbox.includes('pepp')}/>
-                        <label for="checkbox">Pepperroni on pizza</label>
+                        <label htmlFor="checkbox">Pepperroni on pizza</label>
                     </div>
                 </div>
-
-                {console.log(inputInfo.checkbox)}
 
                 <div className='div-input'>
                     <textarea
@@ -198,7 +225,10 @@ function Form(submition) {
 
 
                 <button type='submit' className='add'>Add</button>
-                <button className='update'>Update</button>
+                <button 
+                    className='update'
+                    onClick={handleUpdate}
+                    >Update</button>
             </form>
         </div>
     );
