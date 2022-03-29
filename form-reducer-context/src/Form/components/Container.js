@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "./Form";
 import ListUsers from "./ListUsers";
 
 function Container() {
+  const [error, setError] = useState({});
+
   return (
     <>
-      <Form />
-      <ListUsers />
+      <Form error={error} setError={setError} />
+      <ListUsers error={error} setError={setError} />
     </>
   );
 }

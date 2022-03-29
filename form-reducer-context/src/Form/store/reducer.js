@@ -5,7 +5,7 @@ const initState = {
   user: {
     id: null,
     userName: "",
-    gender: "Male",
+    gender: "male",
     date: "",
     phoneNumber: "",
     email: "",
@@ -24,13 +24,34 @@ function reducer(state, action) {
       };
     case ADD_USER:
       const newAddUsers = [...state.users];
-      let id = Math.floor(Math.random() * 10000);
+      let id = Math.floor(Math.random() * 1000);
       action.payload.id = id;
       newAddUsers.push(action.payload);
-      console.log(newAddUsers);
       return {
         ...state,
         users: [...newAddUsers],
+      };
+    case DELETE_USER:
+      if (action.payload) {
+        const userAfterDelete = state.users.filter((user) => {
+          return user.id !== action.payload;
+        });
+        return {
+          ...state,
+          users: [...userAfterDelete],
+        };
+      }
+    case UPDATE_USER:
+      const updateUser = state.users.map((mapUser) => {
+        if (mapUser.id === action.payload.id) {
+          mapUser = action.payload;
+        }
+        return mapUser;
+      });
+
+      return {
+        ...state,
+        users: [...updateUser],
       };
     default:
       throw new Error("Invalid Action");

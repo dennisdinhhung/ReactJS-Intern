@@ -1,16 +1,55 @@
-import React, { useReducer } from "react";
-import reducer, { initState } from "../store/reducer";
-import { setUser } from "../store/actions";
+import React, { useContext } from "react";
+import Context from "../store/Context";
+import { setUser, updateUser } from "../store/actions";
 import { addUser } from "../store/actions";
+import Validate from "./Validate";
 
-function Form() {
-  const [state, dispatch] = useReducer(reducer, initState);
-  const { users, user } = state;
+function Form({ error, setError }) {
+  const [state, dispatch] = useContext(Context);
+  const { user } = state;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addUser(user));
+
+    const validate = Validate(user);
+    if (!Object.values(validate).some((item) => item)) {
+      dispatch(addUser(user));
+      dispatch(
+        setUser({
+          id: null,
+          userName: "",
+          gender: "male",
+          date: "",
+          phoneNumber: "",
+          email: "",
+          address: "",
+          about: "",
+          checkbox: false,
+        })
+      );
+      return;
+    }
+    setError(validate);
   };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    dispatch(updateUser(user));
+    dispatch(
+      setUser({
+        id: null,
+        userName: "",
+        gender: "male",
+        date: "",
+        phoneNumber: "",
+        email: "",
+        address: "",
+        about: "",
+        checkbox: false,
+      })
+    );
+  };
+
   return (
     <>
       <div className="form-container">
@@ -35,9 +74,10 @@ function Form() {
                     userName: e.target.value,
                   })
                 );
+                error.userName = null;
               }}
             />
-            <span className="form-message"></span>
+            <span className="form-message">{error.userName}</span>
           </div>
 
           <div className="form-group flexbox">
@@ -86,9 +126,10 @@ function Form() {
                     email: e.target.value,
                   })
                 );
+                error.email = null;
               }}
             />
-            <span className="form-message"></span>
+            <span className="form-message">{error.email}</span>
           </div>
 
           <div className="form-group">
@@ -109,9 +150,10 @@ function Form() {
                     phoneNumber: e.target.value,
                   })
                 );
+                error.phoneNumber = null;
               }}
             />
-            <span className="form-message"></span>
+            <span className="form-message">{error.phoneNumber}</span>
           </div>
 
           <div className="form-group">
@@ -131,9 +173,10 @@ function Form() {
                     date: e.target.value,
                   })
                 );
+                error.date = null;
               }}
             />
-            <span className="form-message"></span>
+            <span className="form-message">{error.date}</span>
           </div>
 
           <div className="form-group">
@@ -154,9 +197,10 @@ function Form() {
                     address: e.target.value,
                   })
                 );
+                error.address = null;
               }}
             />
-            <span className="form-message"></span>
+            <span className="form-message">{error.address}</span>
           </div>
 
           <div className="form-group">
@@ -187,14 +231,15 @@ function Form() {
               name="checkbox"
               type="checkbox"
               className="form-control"
-              onChange={(e) => {
+              onChange={() => {
                 dispatch(
                   setUser({
                     ...user,
-                    checkbox: e.target.value,
+                    checkbox: !user.checkbox,
                   })
                 );
               }}
+              checked={user.checkbox}
             />
             <label id="save" htmlFor="checkbox">
               Accepted all the rules!
@@ -202,10 +247,20 @@ function Form() {
           </div>
 
           <div className="group-btn">
-            <button type="submit" className="btn btn-active">
-              Add
+            <button
+              className={
+                user.id || user.checkbox === false
+                  ? "btn btn-inactive"
+                  : "btn btn-active"
+              }
+              type="submit"
+            >
+              Submit
             </button>
-            <button className="btn-inactive" id="btn-update">
+            <button
+              onClick={handleUpdate}
+              className={user.id ? "btn btn-active" : "btn btn-inactive"}
+            >
               Update
             </button>
           </div>
