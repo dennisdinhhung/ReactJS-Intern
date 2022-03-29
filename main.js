@@ -18,7 +18,7 @@ class User {
     }
 }
 
-let listUsers = localStorage.getItem('listUsers') != null ? JSON.parse(localStorage.getItem('listUsers')) : [];
+let listUsers = localStorage.getItem('listUsers') ? JSON.parse(localStorage.getItem('listUsers')) : [];
 
 const hadId = (id) => {
     return listUsers.some((user) => user.id === id);

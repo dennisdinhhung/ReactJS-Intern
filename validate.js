@@ -17,18 +17,15 @@ function Validator(options) {
 
         if (errorMessage) {
             errorElement.innerHTML = errorMessage;
-            inputElement.parentElement.classList.add('invalid');
             return 'Có lỗi';
         } else {
             errorElement.innerHTML = '';
-            inputElement.parentElement.classList.remove('invalid');
             return 'Không có lỗi';
         }
     }
 
     // Lấy form element
     const formElement = document.querySelector(options.form);
-
     if (formElement) {
         // Handle submit form
         formElement.onsubmit = (e) => {
@@ -46,6 +43,7 @@ function Validator(options) {
             }
         }
 
+        console.log(selectorRules);
         options.rules.forEach((rule) => {
             // Lưu rules cho mỗi input
             if (Array.isArray(selectorRules[rule.selector])) {
@@ -59,16 +57,17 @@ function Validator(options) {
             if (inputElement) {
                 // Xử lí blur khỏi input
                 inputElement.onblur = () => {
-                    validate(inputElement, rule, errorElement);
+                    validate(inputElement, rule);
                 }
 
                 // Xử lí mỗi khi người dùng nhập vào input
                 inputElement.oninput = () => {
                     errorElement.innerHTML = '';
-                    inputElement.parentElement.classList.remove('invalid');
                 }
             }
         });
+
+        console.log(selectorRules)
     }
 }
 
