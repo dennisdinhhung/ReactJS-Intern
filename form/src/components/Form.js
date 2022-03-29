@@ -40,7 +40,6 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
         e.preventDefault();
 
         //call the handleParentSubmit
-        console.log(inputInfo, 7);
         parentOnSubmit(inputInfo);
 
         // setting the InputInfo to default

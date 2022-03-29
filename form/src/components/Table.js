@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import Form from './Form';
 
-function Table({listInfo, parentOnEditClick}) {
+function Table({listInfo, parentOnEditClick, parentOnDelClick}) {
     // const [table, setTable] = useState();
 
     const handleEditClick = (row) => {
@@ -11,7 +11,9 @@ function Table({listInfo, parentOnEditClick}) {
     }
 
     const handleDelClick = (row) => {
-        return
+        if (parentOnDelClick){
+            parentOnDelClick(row);
+        }
     }
     
     return (
