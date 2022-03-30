@@ -21,3 +21,7 @@
 /form/npm-debug.log*
 /form/yarn-debug.log*
 /form/yarn-error.log*
+
+
+
+/form-reducer/node_modules
