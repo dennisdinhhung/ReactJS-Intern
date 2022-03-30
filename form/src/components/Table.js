@@ -45,7 +45,7 @@ function Table({listInfo, parentOnEditClick, parentOnDelClick}) {
                                 <td>{row.radio}</td>
                                 <td>{row.email}</td>
                                 <td>{row.dob}</td>
-                                <td>{row.pref}</td>
+                                <td>{row.checkbox.join(', ')}</td>
                                 <td>{row.desc}</td>
                                 <td>
                                     <button onClick={() => handleEditClick(row)}>
