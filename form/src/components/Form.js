@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Validate from './Validate'
 
 function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
 
@@ -13,6 +14,8 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
         checkbox: [],
         desc:''
     });
+
+    const [error_msg, setErrorMsg] = useState({})
 
     //use useEffect as a listener for rowToEdit
     //if rowToEdit change then use useState to change the inputInfo to the info of rowToEdit
@@ -39,6 +42,12 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        //validate everything, if it does not pass, do not let the user submit
+        const validation = Validate(inputInfo);
+        if (Object.values(validation).some(item => item)){
+            setErrorMsg(validation);
+            return;
+        }
         //call the handleParentSubmit
         parentOnSubmit(inputInfo);
 
@@ -71,7 +80,7 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
             checkbox: [],
             desc:''
         })
-    }
+    };
 
     return (
         <div className="div-form"> 
@@ -84,13 +93,21 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                     value={inputInfo.user_name}
                     onChange={(e) => {
                         setInputInfo({...inputInfo, user_name: e.target.value});
-                        // error.name = null;
+                        error_msg.name = null;
+                    }}
+                    onBlur={() => {
+                        const obj = {user_name: inputInfo.user_name}
+                        setErrorMsg({
+                            ...error_msg,
+                            ...Validate(obj)
+                        })
                     }}
                     className='text-input input-name' 
                     id='input-name' 
                     type='text' 
                     placeholder='Enter your name' 
                     autoComplete='off'/>
+                    <div className='validate-msg'>{error_msg.user_name}</div>
                 </div>
                 
                 <div className='div-input'>
@@ -103,7 +120,16 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                         autoComplete='off'
                         onChange={(e) => {
                             setInputInfo({...inputInfo, phone_no: e.target.value});
+                            error_msg.phone_no = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {phone_no: inputInfo.phone_no}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
                         }}/>
+                        <div className='validate-msg'>{error_msg.phone_no}</div>
                 </div>
 
                 <div className='div-input'>
@@ -113,8 +139,17 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                         id='address' 
                         className='address'
                         value={inputInfo.address}
-                        onChange={(e) => setInputInfo({...inputInfo, address: e.target.value})}
-                        >
+                        onChange={(e) => {
+                            setInputInfo({...inputInfo, address: e.target.value})
+                            error_msg.address = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {address: inputInfo.address}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
+                        }}>
                         <option value='' disabled>Please choose an option</option>
                         <option 
                             value='ba dinh'>
@@ -123,6 +158,7 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                             value='cau giay'>
                                 Cau Giay</option>
                     </select>
+                    <div className='validate-msg'>{error_msg.address}</div>
                 </div>
 
                 <div className='div-input'>
@@ -161,7 +197,16 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                         type='text' 
                         name='email' 
                         placeholder='Enter your email'
-                        onChange={(e) => setInputInfo({...inputInfo, email: e.target.value})}/>
+                        onChange={(e) => setInputInfo({...inputInfo, email: e.target.value})}
+                        onBlur={() => {
+                            const obj = {email: inputInfo.email}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
+                        }}/>
+                    <div className='validate-msg'>{error_msg.email}</div>
+                        
                 </div>
 
                 <div className='div-input'>
@@ -172,7 +217,15 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                         id="dob"
                         className='dob'
                         value={inputInfo.dob}
-                        onChange={(e) => setInputInfo({...inputInfo, dob: e.target.value})}/>
+                        onChange={(e) => setInputInfo({...inputInfo, dob: e.target.value})}
+                        onBlur={() => {
+                            const obj = {dob: inputInfo.dob}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
+                        }}/>
+                    <div className='validate-msg'>{error_msg.dob}</div>
                 </div>
 
                 {//accept checkbox using a function
@@ -223,9 +276,9 @@ function Form({parentOnUpdate, parentOnSubmit, rowToEdit}) {
                 </div>
 
 
-                <button type='submit' className='add'>Add</button>
+                <button type='submit' className={inputInfo.id ? 'disabled' : 'avail'}>Add</button>
                 <button 
-                    className='update'
+                    className={inputInfo.id ? 'avail' : 'disabled'}
                     onClick={handleUpdate}
                     >Update</button>
             </form>

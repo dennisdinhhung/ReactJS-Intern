@@ -51,7 +51,6 @@ function App() {
   }
 
   const handleParentUpdate = (inputInfo) => {
-    //TODO: find the id from
     const newList = [...listInfo];
     const rowToUpdate = getRowID(inputInfo.id);
     const index = listInfo.indexOf(rowToUpdate);
