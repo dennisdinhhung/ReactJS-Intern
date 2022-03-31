@@ -29,7 +29,7 @@ function Tours(props) {
     }
 
     useEffect(() => {
-        fetchTours()
+        fetchTours();
     }, []);
 
     if (loading) {
