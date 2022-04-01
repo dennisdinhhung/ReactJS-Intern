@@ -8,7 +8,13 @@
 // import Cart from './components/14 - Cart/Cart';
 // import LoremIpsum from "./components/08 - Lorem Ipsum/LoremIpsum";
 // import ColorGenerator from "./components/09 - Color Generator/ColorGenerator";
-import GroceryBud from "./components/10 - Grocery Bud/GroceryBud";
+// import GroceryBud from "./components/10 - Grocery Bud/GroceryBud";
+// import Navbar from "./components/11 - Navbar/Navbar";
+// import MarkdownPreview from "./components/16 - Markdown Preview/MarkdownPreview";
+// import Pagination from "./components/18 - Pagination/Pagination";
+// import SidebarModal from "./components/12 - SidebarModal/SidebarModal";
+
+import StripeSubmenus from "./components/13 - StripeSubmenus/StripeSubmenus";
 
 function App() {
   return (
@@ -33,7 +39,17 @@ function App() {
 
       {/* <ColorGenerator /> */}
 
-      <GroceryBud />
+      {/* <GroceryBud /> */}
+
+      {/* <Navbar /> */}
+
+      {/* <MarkdownPreview /> */}
+
+      {/* <Pagination /> */}
+
+      {/* <SidebarModal /> */}
+
+      <StripeSubmenus />
     </div>
   );
 }
