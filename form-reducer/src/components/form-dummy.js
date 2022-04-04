@@ -1,37 +1,70 @@
 import React, { useContext, useReducer, useState } from 'react'
 import reducer, {initalState} from '../reducer/reducer'
-import {setStateInfo} from '../reducer/actions'
+import {addInfo, setStateInfo, updateInfo} from '../reducer/actions'
 import Context from '../context/context'
+import Validate from './Validate'
 
 function FormDummy() {
 
     // using useContext to call useReducer
 
     const [info, dispatch] = useContext(Context);
-    
-    const {user} = info
-    return (
-        // <div className='div-form'>
-        //     <div>
-        //         <form>
-        //             <input 
-        //                 value={user.user_name}
-        //                 onChange={(e) => {
-        //                     dispatch(
-        //                         setStateInfo({
-        //                             ...user,
-        //                             user_name: e.target.value
-        //                         }))
-        //                 }}/>
-        //         </form>
-        //     </div>
-        // </div>
 
+    const [error_msg, setErrorMsg] = useState({})
+
+    const {users, user} = info;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        //validate everything, if it does not pass, do not let the user submit
+        const validation = Validate(user);
+
+        if (Object.values(validation).some(item => item)){
+            setErrorMsg(validation);
+            return;
+        }
+
+        // useReducer to run the submition function
+        dispatch(
+            addInfo(user)
+        )
+    }
+
+    // fixed
+    const handleCheckbox = (pref) => {
+        const isChecked = user.checkbox.includes(pref);
+        
+        const checkboxListUpdate = isChecked ? user.checkbox.filter(item => item !== pref) : [...user.checkbox, pref]
+        
+        dispatch(setStateInfo({
+            ...user,
+            checkbox: checkboxListUpdate
+        }))
+    }
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        
+        //validate everything, if it does not pass, do not let the user submit
+        const validation = Validate(user);
+
+        if (Object.values(validation).some(item => item)){
+            setErrorMsg(validation);
+            return;
+        }
+
+        dispatch(
+            updateInfo(user)
+        )
+    }
+
+    return (
         <div className="div-form"> 
             <form 
                 className="form" 
                 id="form" 
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
                 >
                 <div className='div-input'>
                     <div className='label'>Name<span>*</span></div>
@@ -43,13 +76,21 @@ function FormDummy() {
                                 ...user, user_name: e.target.value
                             })
                         )
+                        error_msg.user_name = null;
+                    }}
+                    onBlur={() => {
+                        const obj = {user_name: user.user_name}
+                        setErrorMsg({
+                            ...error_msg,
+                            ...Validate(obj)
+                        })
                     }}
                     className='text-input input-name' 
                     id='input-name' 
                     type='text' 
                     placeholder='Enter your name' 
                     autoComplete='off'/>
-                    <div className='validate-msg'>{/* error_msg.user_name */}</div>
+                    <div className='validate-msg'>{error_msg.user_name}</div>
                 </div>
                 
                 <div className='div-input'>
@@ -66,8 +107,17 @@ function FormDummy() {
                                     ...user, phone_no: e.target.value
                                 })
                             )
-                        }}/>
-                        <div className='validate-msg'>{/* error_msg.phone_no */}</div>
+                            error_msg.phone_no = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {phone_no: user.phone_no}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
+                        }}
+                        />
+                        <div className='validate-msg'>{error_msg.phone_no}</div>
                 </div>
 
                 <div className='div-input'>
@@ -80,9 +130,17 @@ function FormDummy() {
                         onChange={(e) => {
                             dispatch(
                                 setStateInfo({
-                                    ...user, address: user.address
+                                    ...user, address: e.target.value
                                 })
                             )
+                            error_msg.address = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {address: user.address}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
                         }}
                         >
                         <option value='' disabled>Please choose an option</option>
@@ -93,7 +151,7 @@ function FormDummy() {
                             value='cau giay'>
                                 Cau Giay</option>
                     </select>
-                    <div className='validate-msg'>{/* error_msg.address */}</div>
+                    <div className='validate-msg'>{error_msg.address}</div>
                 </div>
 
                 <div className='div-input'>
@@ -112,6 +170,13 @@ function FormDummy() {
                                         ...user, radio: 'male'
                                     })
                                 )
+                            }}
+                            onBlur={() => {
+                                const obj = {email: user.email}
+                                setErrorMsg({
+                                    ...error_msg,
+                                    ...Validate(obj)
+                                })
                             }}
                             checked={user.radio === 'male'}
                             />
@@ -152,9 +217,17 @@ function FormDummy() {
                                     ...user, email: e.target.value
                                 })
                             )
+                            error_msg.email = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {email: user.email}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
                         }}
                         />
-                    <div className='validate-msg'>{/* error_msg.email */}</div>
+                    <div className='validate-msg'>{error_msg.email}</div>
                         
                 </div>
 
@@ -172,9 +245,17 @@ function FormDummy() {
                                     ...user, dob: e.target.value
                                 })
                             )
+                            error_msg.dob = null;
+                        }}
+                        onBlur={() => {
+                            const obj = {dob: user.dob}
+                            setErrorMsg({
+                                ...error_msg,
+                                ...Validate(obj)
+                            })
                         }}
                         />
-                    <div className='validate-msg'>{/* error_msg.dob */}</div>
+                    <div className='validate-msg'>{error_msg.dob}</div>
                 </div>
 
                 {//accept checkbox using a function
@@ -193,8 +274,8 @@ function FormDummy() {
                             name="checkbox" 
                             id="" 
                             value="pine"
-                            /* onChange={() => handleCheckbox('pine')}
-                            checked={user.checkbox.includes('pine')} *//>
+                            onChange={() => handleCheckbox('pine')}
+                            checked={user.checkbox.includes('pine')}/>
                         <label htmlFor="checkbox">Pineapple on pizza</label>
                     </div>
 
@@ -205,8 +286,8 @@ function FormDummy() {
                             name="checkbox" 
                             id="" 
                             value="pepp"
-                            /* onChange={() => handleCheckbox('pepp')}
-                            checked={user.checkbox.includes('pepp')} *//>
+                            onChange={() => handleCheckbox('pepp')}
+                            checked={user.checkbox.includes('pepp')}/>
                         <label htmlFor="checkbox">Pepperroni on pizza</label>
                     </div>
                 </div>
@@ -234,7 +315,7 @@ function FormDummy() {
                 <button type='submit' className={user.id ? 'disabled' : 'avail'}>Add</button>
                 <button 
                     className={user.id ? 'avail' : 'disabled'}
-                    /* onClick={handleUpdate} */
+                    onClick={handleUpdate}
                     >Update</button>
             </form>
         </div>

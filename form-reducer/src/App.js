@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import FormDummy from './components/form-dummy';
+import Table from './components/Table';
 
 function App() {
   
@@ -10,6 +11,7 @@ function App() {
         This is a test
       </div>
       <FormDummy/>
+      <Table/>
     </div>
   );
 }
