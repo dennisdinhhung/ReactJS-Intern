@@ -13,8 +13,9 @@
 // import MarkdownPreview from "./components/16 - Markdown Preview/MarkdownPreview";
 // import Pagination from "./components/18 - Pagination/Pagination";
 // import SidebarModal from "./components/12 - SidebarModal/SidebarModal";
+// import StripeSubmenus from "./components/13 - StripeSubmenus/StripeSubmenus";
 
-import StripeSubmenus from "./components/13 - StripeSubmenus/StripeSubmenus";
+import Cocktails from "./components/15 - Cocktails/Cocktails";
 
 function App() {
   return (
@@ -49,7 +50,9 @@ function App() {
 
       {/* <SidebarModal /> */}
 
-      <StripeSubmenus />
+      {/* <StripeSubmenus /> */}
+
+      <Cocktails />
     </div>
   );
 }
