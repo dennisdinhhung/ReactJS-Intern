@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Context from '../context/context'
 import { delInfo, editInfo } from '../reducer/actions';
 
-function Table() {
+function Table({errorResetFunc}) {
     const [state, dispatch] = useContext(Context);
     const {users, user} = state;
 
@@ -10,6 +10,7 @@ function Table() {
         dispatch(
             editInfo(currentUser)
         )
+        errorResetFunc();
     }
 
     const handleDelClick = (currentUser) => {

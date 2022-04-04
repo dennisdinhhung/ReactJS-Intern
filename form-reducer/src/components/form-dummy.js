@@ -1,10 +1,10 @@
-import React, { useContext, useReducer, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import reducer, {initalState} from '../reducer/reducer'
 import {addInfo, setStateInfo, updateInfo} from '../reducer/actions'
 import Context from '../context/context'
 import Validate from './Validate'
 
-function FormDummy() {
+function FormDummy({errorReset}) {
 
     // using useContext to call useReducer
 
@@ -58,6 +58,10 @@ function FormDummy() {
             updateInfo(user)
         )
     }
+
+    useEffect(() => {
+        setErrorMsg(errorReset)
+    },[errorReset])
 
     return (
         <div className="div-form"> 
