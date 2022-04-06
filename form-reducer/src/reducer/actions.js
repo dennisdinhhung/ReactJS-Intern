@@ -30,4 +30,5 @@ export const updateInfo = (payload) => ({
     type: ACTIONS.UPDATE_INFO,
     payload
 })
+
 export {ACTIONS}

@@ -53,7 +53,7 @@ const reducer = (state, action) => {
 
         case ACTIONS.DEL_INFO:
             // get the indexDel of the currentUser from the payload
-            const indexDel = state.users.indexDelOf(action.payload);
+            const indexDel = state.users.indexOf(action.payload);
             //get current state's list of users
             const newDelList = [...state.users];
             
