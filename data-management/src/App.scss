@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid rgb(0, 0, 0);
+      padding: 8px;
+      width: 200px;
+      text-align: center;
+    }
+    th {
+      background-color: #f1f1f1;
+    }
+  }
+}
