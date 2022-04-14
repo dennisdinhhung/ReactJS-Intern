@@ -1,0 +1,90 @@
+{
+    "id":1,
+    "name":"name",
+    "code":"code",
+    "fiscal_year":2021,
+    "annual_closing_date":"2021-11-22",
+    "accounting_standards":"JGAAP",
+    "comments":"",
+    "members":[
+       {
+          "id":2,
+          "username":"daniel",
+          "email":"daniel@vmogroup.com"
+       }
+    ],
+    "created_on":"2021-11-22T18:39:29.662927+09:00",
+    "created_by":1,
+    "last_edited_on":"2021-11-22T18:39:29.662965+09:00",
+    "last_edited_by":1,
+    "state":"",
+    "quarter_sections":[
+       {
+          "quarter":"4th Quarter",
+          "date":"2021.02"
+       },
+       {
+          "quarter":"3rd Quarter",
+          "date":"2021.05"
+       },
+       {
+          "quarter":"2nd Quarter",
+          "date":"2021.08"
+       },
+       {
+          "quarter":"1st Quarter",
+          "date":"2021.11",
+          "FINANCE":{
+             "id":3,
+             "state":"NOT_STARTED",
+             "name":"selectinput (1).mov",
+             "filename":"035a7a90-5224-4862-b2ac-594e65855162_selectinput (1).mov",
+             "uploaded_on":"2021-11-22T18:39:47.781527+09:00",
+             "last_edited_on":"2021-11-22T18:39:47.781615+09:00",
+             "documents":[
+                {
+                   "id":3,
+                   "name":"selectinput (1).mov",
+                   "type":"REFERENCE",
+                   "filename":"035a7a90-5224-4862-b2ac-594e65855162_selectinput (1).mov",
+                   "uploaded_on":"2021-11-22T18:39:47.781527+09:00",
+                   "uploaded_by":1,
+                   "last_edited_on":"2021-11-22T18:39:47.781615+09:00",
+                   "last_edited_by":1
+                }
+             ]
+          },
+          "EARNINGS":{
+             "id":1,
+             "state":"NOT_STARTED",
+             "name":"1",
+             "filename":"54f6c802-7223-4aea-a1cd-bcc47c34581d_uploaddocument.png",
+             "uploaded_on":"2021-11-22T18:39:41.071149+09:00",
+             "last_edited_on":"2021-11-22T18:39:41.071220+09:00",
+             "documents":[
+                {
+                   "id":2,
+                   "name":"1",
+                   "type":"DRAFT",
+                   "filename":"54f6c802-7223-4aea-a1cd-bcc47c34581d_uploaddocument.png",
+                   "uploaded_on":"2021-11-22T18:39:41.071149+09:00",
+                   "uploaded_by":1,
+                   "last_edited_on":"2021-11-22T18:39:41.071220+09:00",
+                   "last_edited_by":1
+                },
+                {
+                   "id":1,
+                   "name":"word_list_zankaku_v11 20211118.xlsx",
+                   "type":"REFERENCE",
+                   "filename":"f8f0c7fc-d745-46a8-9fc1-1af1db5c7528_word_list_zankaku_v11 20211118.xlsx",
+                   "uploaded_on":"2021-11-22T18:39:35.614138+09:00",
+                   "uploaded_by":1,
+                   "last_edited_on":"2021-11-22T18:39:35.614239+09:00",
+                   "last_edited_by":1
+                }
+             ]
+          }
+       }
+    ]
+ }
+ 
