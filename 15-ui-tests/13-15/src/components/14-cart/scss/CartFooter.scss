@@ -1,0 +1,41 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .underline {
+    margin-top: 3rem;
+    height: 0.2rem;
+    width: 50rem;
+    background-color: black;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      font-size: 1.5rem;
+      margin: 1rem;
+    }
+  }
+
+  button {
+    margin-top: 3rem;
+    height: 3rem;
+    width: 15rem;
+    background: transparent;
+    border-color: rgb(145, 0, 0);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+    color: rgb(145, 0, 0);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f8baba;
+    }
+  }
+}
