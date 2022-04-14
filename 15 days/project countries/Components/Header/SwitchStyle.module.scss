@@ -1,0 +1,37 @@
+.toggleButton{
+    width: 60px;
+    height: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  2px 4px;
+    box-shadow: var(--boxShadow);
+    background: var(--backGroundToggle);
+    user-select: none;
+}
+.Circle{
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+.Moon{
+    color: var(--backGroundIcon);
+    // color: yellow;
+    font-size: 23px;
+    margin-top: 9px;
+    transition: all 0.2s ease;
+}
+.Input:checked ~ .Circle{
+    transform: translateX(-25px);
+}
+.Input:checked ~ .Moon{
+    transform: translateX(25px);
+}
+.Input{
+    width: 0;
+    height: 0;
+    opacity: 1;
+}

@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Nunito Sans';
+}
+:root{
+    --backGroundToggle:hsl(86, 90%, 69%);
+    --backGroundIcon:rgb(238, 255, 0);
+    --textShadow:2px 2px 2px rgba(0,0,0,0.3);
+    --boxShadow:0 4px 5px rgba(0,0,0,0.2);
+    --selectedOptionItem:rgb(146, 96, 148);
+}
+.darkTheme{
+    background-color: rgb(20, 70, 73);
+    color: rgb(155, 151, 151);
+    box-shadow: var(--boxShadow);
+}
+.lightTheme{
+    background-color: rgb(228, 245, 161);
+    color: rgb(0, 0, 0);
+    box-shadow: var(--boxShadow);
+}      
+
+ul, ol, li {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
