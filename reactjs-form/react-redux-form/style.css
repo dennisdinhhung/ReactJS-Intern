@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #1a1f36;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.input-basic{
+    font-size: 16px;
+    height: 30px;
+    padding: 8px 8px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+}
+
+.form-group{
+    padding-bottom: 15px;
+}
+.form-group > label{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    float: left;
+    width: 150px
+}
+::placeholder {
+    font-weight: 300;
+    opacity: 0.5;
+  }
+.form{ 
+    width: 400px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    height: 100%
+}
+
+
+
+div.form input[type="text"],button{
+    margin-bottom: 10px;
+    width: 200px;
+    padding: 5px;
+}
+
+
+
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+
+.Main{
+    width: 100%;
+    display: flex;
+}
+
+.btn-submit{
+    background: #46b5d1 !important;
+    border-color: #46b5d1 !important;
+    color: #fff;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 13px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 550;
+    
+}
+.btn-form{
+    margin: 15px 0px 0px 170px;
+}
+
+.error{
+    color:red;
+    padding-left: 150px;
+}
+
+div.form input[type="text"], button {
+    margin: 10px;
+    height: 30px;
+    width: 60px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
