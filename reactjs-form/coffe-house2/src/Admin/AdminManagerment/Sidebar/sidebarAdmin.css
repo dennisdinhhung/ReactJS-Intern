@@ -1,0 +1,27 @@
+.SidebarAdmin-ul{
+    list-style-type:none;
+}
+
+.SidebarAdmin-li{
+    color: black;
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 237px;
+    height: 50px;
+    border: 1px solid black;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.SidebarAdmin{
+    height: 700px;
+    width: 300px;
+    background: whitesmoke;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+    align-items: center;
+}
+
